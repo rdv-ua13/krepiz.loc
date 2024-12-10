@@ -1,0 +1,45 @@
+:root {
+	// base
+	--font-family-base: "Gilroy", sans-serif;
+	--content-width: 1660px;
+	--container-offset: 15px;
+	--container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+
+	// colors
+	--black-color: #000000;
+	--white-color: #FFFFFF;
+
+	--main-dark-color: #3A4259;
+	--main-dark-hover-color: #4E556A;
+	--accent-color: #D5634A;
+	--accent-hover-color: #D9735C;
+	--accent-pale-color: #F9E8E4;
+	--accent-pale-hover-color: #F6DDD7;
+	--gray1-color: #7F8493;
+	--gray1-hover-color: #686E80;
+	--gray2-color: #BABDC5;
+	--gray2-hover-color: #9397A4;
+	--gray-dark-color: #9DA0AC;
+	--gray-dark-hover-color: #D8D9DE;
+	--line-dark-color: #585E72;
+	--gray-bg-color: #E1E3E6;
+	--gray-bg-hover-color: #D8D9DE;
+	--bg-color: #F3F4F5;
+	--bg-hover-color: #EDEEF0;
+	--green-color: #369B5B;
+	--blue-color: #2294CD;
+	--yellow-color: #D5924A;
+
+	/*--black-color-30: rgba(0, 0, 0, 0.3);
+	--gray2-color-20: rgba(156, 156, 156, 0.2);*/
+
+	--shadow: 0 12px 20px -2px rgba(0, 0, 0, 0.16);
+	--shadow-product-card: 0 2px 15px 0 rgba(58, 66, 89, 0.29);
+
+	// fancybox
+	--fancybox-scrollbar-compensate: 17px;
+	--fancybox-bg: rgba(0, 0, 0, 0.7);
+
+	// transition
+	--transition: 0.2s ease-out;
+}
