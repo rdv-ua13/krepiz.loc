@@ -4,8 +4,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-item footer-main">
-                    <div class="footer-logo">
-                        <div class="footer-logo__view">
+                    <a href="javascript:;" class="footer-logo">
+                        <span class="footer-logo__view">
                             <img
                                     loading="lazy"
                                     class="image"
@@ -14,9 +14,9 @@
                                     height="38"
                                     alt="Изображение блока"
                             >
-                        </div>
-                        <div class="footer-logo__text">Оптовая продажа крепежа</div>
-                    </div>
+                        </span>
+                        <span class="footer-logo__text">Оптовая продажа крепежа</span>
+                    </a>
                     <ul class="list-reset footer-info">
                         <li class="footer-info__item">
                             <a href="javascript:;" class="footer-info__link">

@@ -6,7 +6,13 @@
 	color: var(--white-color);
 
 	&-logo {
+		display: inline-flex;
+		flex-direction: column;
+		width: max-content;
+
 		&__view {
+			display: flex;
+
 			&:not(:last-child) {
 				margin-bottom: 15px;
 			}

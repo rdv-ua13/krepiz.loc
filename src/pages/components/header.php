@@ -43,219 +43,146 @@
 </head>
 
 <body>
-    <?/*<header class="header">
-        <div class="container header__container">
-            <div class="header-logo">
-                <a class="logo" href="javascript:;">
-                    <img
-                        loading="lazy"
-                        src="img/logo.svg"
-                        class="image logo-image-full"
-                        width="185"
-                        height="52"
-                        alt="Логотип Волонтёры экологи"
-                    >
-                    <img
-                        loading="lazy"
-                        src="img/logo.svg"
-                        class="image logo-image-cut"
-                        width="36"
-                        height="42"
-                        alt="Логотип Волонтёры экологи"
-                    >
-                </a>
-            </div>
-
-			<? if(!strpos($_SERVER["REQUEST_URI"], "registration.php") && !strpos($_SERVER["REQUEST_URI"], "auth.php")) : ?>
-				<? if(strpos($_SERVER["REQUEST_URI"], "organizer.php")) : ?>
-                    <div class="header-menu-organizer">
-                        <ul class="list-reset header-menu-organizer__list">
-                            <li><a href="javascript:;" class="link">Пункт1</a></li>
-                            <li><a href="javascript:;" class="link">Пункт2</a></li>
-                            <li><a href="javascript:;" class="link">Пункт3</a></li>
-                            <li><a href="javascript:;" class="link">Пункт4</a></li>
+    <header class="header">
+        <div class="header-content">
+            <div class="header-top">
+                <div class="container">
+                    <div class="header-top-content">
+                        <ul class="list-reset header-top__list">
+                            <li><a href="javascript:;" class="header-top__link">Для производств и инженерных организаций</a></li>
+                            <li><a href="javascript:;" class="header-top__link">Для конечных покупателей и частных лиц</a></li>
+                            <li><a href="javascript:;" class="header-top__link">Изготовление шпилек - собственное производство</a></li>
+                        </ul>
+                        <ul class="list-reset header-top__action">
+                            <li>
+                                <a href="javascript:;" class="header-top__action-item">
+                                    <span class="text-content">Сравнение</span>
+                                    <svg class="icon icon-fill">
+                                        <use href="img/sprite.svg#compare"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="header-top__action-item has-data">
+                                    <span class="text-content">Избранное</span>
+                                    <svg class="icon icon-fill">
+                                        <use href="img/sprite.svg#favorite"></use>
+                                    </svg>
+                                </a>
+                            </li>
                         </ul>
                     </div>
-
-                    <div class="header-menu-organizer-mobile">
-                        <button
-                                class="burger js-burger"
-                                aria-label="Открыть меню"
-                                aria-expanded="false"
-                                data-burger
-                                data-overlay
-                        >
-                            <svg class="icon burger__icon">
-                                <use href="img/sprite.svg#burger"></use>
-                            </svg>
-                            <span class="burger__text">Меню</span>
-                        </button>
-                    </div>
-				<? else : ?>
-                    <div class="header-menu">
-                        <button
-                                class="burger js-burger"
-                                aria-label="Открыть меню"
-                                aria-expanded="false"
-                                data-burger
-                                data-overlay
-                        >
-                            <svg class="icon burger__icon">
-                                <use href="img/sprite.svg#burger"></use>
-                            </svg>
-                            <span class="burger__text">Меню</span>
-                        </button>
-                    </div>
-				<? endif; ?>
-				<? if(!strpos($_SERVER["REQUEST_URI"], "organizer.php")) : ?>
-                    <div class="header-search">
-                        <form id="" class="form" method="" action="javascript:;">
-                            <div class="form__field">
-                                <input
-                                        class="input-reset form__input"
-                                        type="search"
-                                        name="Поиск"
-                                        placeholder="Что вы хотите найти?"
+                </div>
+            </div>
+            <div class="header-main">
+                <div class="container">
+                    <div class="header-main-content">
+                        <a href="javascript:;" class="header-logo">
+                            <span class="header-logo__view">
+                                <img
+                                        loading="lazy"
+                                        class="image"
+                                        src="img/sprite.svg#logo-dark"
+                                        width="218"
+                                        height="38"
+                                        alt="Изображение блока"
                                 >
-                                <button class="btn-reset form__btn">
-                                    <svg class="icon">
-                                        <use href="img/sprite.svg#search"></use>
+                            </span>
+                            <span class="header-logo__text">Оптовая продажа крепежа</span>
+                        </a>
+                        <div class="header-catalog">
+                            <a class="btn-reset btn btn-primary btn-sm header-catalog__link" href="javascript:;">
+                                <svg class="icon icon-fill">
+                                    <use href="img/sprite.svg#catalog"></use>
+                                </svg>
+                                <span class="text-content">Каталог</span>
+                            </a>
+                            <div class="header-search">
+                                <form id="" method="" action="javascript:;">
+                                    <div class="input-wrapper input-wrapper-split">
+                                        <input
+                                                id="header_search"
+                                                class="input-reset input input-search"
+                                                type="text"
+                                                name=""
+                                                value=""
+                                                placeholder="Поиск по сайту"
+                                        >
+                                        <button class="btn-reset btn btn-sm btn-primary header-search__submit" type="submit">
+                                            <svg class="icon icon-fill">
+                                                <use href="img/sprite.svg#search"></use>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="header-info">
+                            <div class="header-contacts">
+                                <a href="javascript:;" class="header-contacts__item header-contacts__item-tel">
+                                    <span class="text-content">8 (499) 638-2-836</span>
+                                    <svg class="icon icon-fill">
+                                        <use href="img/sprite.svg#phone"></use>
                                     </svg>
+                                </a>
+                                <span class="header-contacts__item">с 9:00 до 18:00, ПН-ПТ</span>
+                            </div>
+                            <div class="header-invoice">
+                                <button class="btn-reset btn btn-sm btn-dark" type="button">
+                                    <span class="text-content">Запросить счёт</span>
                                 </button>
                             </div>
-                        </form>
-                    </div>
-				<? endif; ?>
-				<? // todo: отобразить состояние авториззованного пользователя - раскомментировать ".header-actions--current-user" ?>
-                <div class="header-actions--current-user header-actions--current-user* /?>">
-                    <div class="header-actions__item header-actions-mobile">
-                        <button class="btn-reset btn btn--noframe header-actions-mobile__dropdown js-header-actions-mobile-dropdown" data-overlay>
-                            <svg class="icon btn__icon">
-                                <use href="img/sprite.svg#user"></use>
+                        </div>
+                        <button
+                                class="btn-reset btn header-burger"
+                                aria-label="Открыть меню"
+                                aria-expanded="false"
+                                data-menu-spoiler
+                                data-overlay
+                        >
+                            <svg class="icon icon-fill">
+                                <use href="img/sprite.svg#catalog"></use>
                             </svg>
                         </button>
                     </div>
-
-                    <div class="header-actions__item header-actions-no-auth">
-                        <div class="header-actions-no-auth__item">
-                            <button class="btn-reset btn btn--noframe header-actions-no-auth__entry">
-                                <svg class="icon btn__icon">
-                                    <use href="img/sprite.svg#user"></use>
+                </div>
+            </div>
+            <div class="header-menu">
+                <div class="container">
+                    <div class="header-menu-content">
+                        <ul class="list-reset header-menu__list">
+                            <li><a href="javascript:;" class="header-menu__link">Главная</a></li>
+                            <li><a href="javascript:;" class="header-menu__link">О компании</a></li>
+                            <li><a href="javascript:;" class="header-menu__link">Прайс-лист</a></li>
+                            <li><a href="javascript:;" class="header-menu__link">Оплата</a></li>
+                            <li><a href="javascript:;" class="header-menu__link">Доставка</a></li>
+                            <li><a href="javascript:;" class="header-menu__link">Документы</a></li>
+                            <li><a href="javascript:;" class="header-menu__link">Скидки</a></li>
+                            <li><a href="javascript:;" class="header-menu__link">Контакты</a></li>
+                            <li><a href="javascript:;" class="header-menu__link">Отзывы</a></li>
+                            <li><a href="javascript:;" class="header-menu__link">Блог</a></li>
+                        </ul>
+                        <?/*<a href="javascript:;" class="header-menu__cart">
+                            <span class="text-content">0 товаров</span>
+                            <span class="header-menu__cart-view">
+                                <svg class="icon icon-fill">
+                                    <use href="img/sprite.svg#basket"></use>
                                 </svg>
-                                <span class="btn__text">Войти</span>
-                            </button>
-                        </div>
-                        <div class="header-actions-no-auth__item">
-                            <button class="btn-reset btn">
-                                <span class="btn__text">Зарегистрироваться</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="header-actions__item header-actions-current-user">
-                        <div class="current-user">
-                            <span class="current-user__menu js-current-user-menu">
-                                <picture class="current-user__pic">
-                                    <source srcset="img/user.webp" type="image/webp">
-                                    <img
-                                            loading="lazy"
-                                            src="img/user.png"
-                                            class="image"
-                                            width="42"
-                                            height="42"
-                                            alt="User"
-                                    >
-                                </picture>
-                                <span class="current-user__dropdown">
-                                    <span class="current-user__dropdown-header">
-                                        <span class="current-user__dropdown-header-title">Ассоциация волонтерских центров</span>
-                                    </span>
-                                </span>
-                                <span class="current-user__dropdown-menu">
-                                    <span class="current-user__dropdown-menu-item">
-                                        <span class="current-user__dropdown-menu-user">
-                                            <picture class="current-user__pic">
-                                                <source srcset="img/user.webp" type="image/webp">
-                                                <img
-                                                        loading="lazy"
-                                                        src="img/user.png"
-                                                        class="image"
-                                                        width="42"
-                                                        height="42"
-                                                        alt="User"
-                                                >
-                                            </picture>
-                                            <span class="current-user__dropdown-menu-user-header">
-                                                <span class="current-user__dropdown-menu-user-title">
-                                                    Алексеев Дмитрий Олегович
-                                                </span>
-                                            </span>
-                                        </span>
-                                        <span class="current-user__dropdown-menu-user">
-                                            <picture class="current-user__pic">
-                                                <source srcset="img/user.webp" type="image/webp">
-                                                <img
-                                                        loading="lazy"
-                                                        src="img/user.png"
-                                                        class="image"
-                                                        width="42"
-                                                        height="42"
-                                                        alt="User"
-                                                >
-                                            </picture>
-                                            <span class="current-user__dropdown-menu-user-header">
-                                                <span class="current-user__dropdown-menu-user-title">
-                                                    Ассоциация волонтерских центров
-                                                </span>
-                                                <span class="current-user__dropdown-menu-user-subtitle">
-                                                    Организация
-                                                </span>
-                                            </span>
-                                        </span>
-                                    </span>
-                                    <span class="current-user__dropdown-menu-item">
-                                        <ul class="list-reset">
-                                            <li><a href="javascript:;" class="link">Стать организатором</a></li>
-                                            <li><a href="javascript:;" class="link">Настройки профиля</a></li>
-                                            <li><a href="javascript:;" class="link">Выйти</a></li>
-                                        </ul>
-                                    </span>
-                                </span>
                             </span>
-                            <span class="current-user__notice">
-                                <button class="btn-reset current-user__notice-btn notice">
-                                    <svg class="icon">
-                                        <use href="img/sprite.svg#mail"></use>
-                                    </svg>
-                                    <span class="current-user__notice-btn-num">3</span>
-                                </button>
-                                <button class="btn-reset current-user__notice-btn notice">
-                                    <svg class="icon">
-                                        <use href="img/sprite.svg#bell"></use>
-                                    </svg>
-                                    <span class="current-user__notice-btn-num">24</span>
-                                </button>
+                        </a>*/?>
+                        <a href="javascript:;" class="header-menu__cart has-data">
+                            <span class="text-content">56 товаров - 420 580 ₽</span>
+                            <span class="header-menu__cart-view">
+                                <svg class="icon icon-fill">
+                                    <use href="img/sprite.svg#basket"></use>
+                                </svg>
                             </span>
-                        </div>
+                        </a>
                     </div>
-
                 </div>
-			<? else : ?>
-                <div class="header-actions header-actions-authreg">
-					<? if(strpos($_SERVER["REQUEST_URI"], "registration.php")) : ?>
-                        <button class="btn-reset btn">
-                            <span class="btn__text">Войти</span>
-                        </button>
-					<? elseif(strpos($_SERVER["REQUEST_URI"], "auth.php")) : ?>
-                        <button class="btn-reset btn">
-                            <span class="btn__text desktop-only">Зарегистрироваться</span>
-                            <span class="btn__text mobile-only">Регистрация</span>
-                        </button>
-                    <? endif; ?>
-                </div>
-			<? endif; ?>
+            </div>
         </div>
-    </header>*/?>
+    </header>
 
 	<?/*
     <div class="burger-menu" data-menu>
