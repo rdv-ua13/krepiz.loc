@@ -91,6 +91,7 @@
     .gap-md { margin-bottom: 25px !important; }
     .gap-lg { margin-bottom: 30px !important; }
     .gap-xl { margin-bottom: 50px !important; }
+    .gap-xl { margin-bottom: 50px !important; }
 }
 @media (max-width: 991.98px) {
     .gap-xxs { margin-bottom: 5px !important; }
