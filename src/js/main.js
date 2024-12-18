@@ -9,25 +9,30 @@ function application() {
 }
 application.prototype.init = function () {
     this.initTouch();
-    /*this.initHeaderScroll();
+    this.initMenuCatalog();
+    this.initBasicSlider();
+    this.initTooltips();
+    this.initSwitchContent();
+    this.initCartQuantity();
+    this.initMenuCatalogSubmenu();
+
+    /*
+    this.initHeaderScroll();
     this.initBurger();
     this.initOverlay();
-    this.initDropdownMenu();*/
-    this.initBasicSlider();
-    /*this.initBasicTabSlider();
+    this.initDropdownMenu();
+    this.initBasicTabSlider();
     this.initSliders();
     this.initSticky();
     this.initMiniSlider();
     this.initSelect2();
     this.initSelect2Unsearch();
     this.initReadmore();
-    this.initClipboard();*/
-    this.initTooltips();
-    /*this.initCardActTooltips();
+    this.initClipboard();
+    this.initCardActTooltips();
     this.initInputSearch();
     this.initHeaderInputSearch();
     this.initMaskedInput();
-    this.initSwitchContent();
     this.initNotification();
     this.initCatalogPriceSlider();
     this.initCatalogSidebarFilter();
@@ -42,7 +47,6 @@ application.prototype.init = function () {
     this.initDatepicker();
     this.setCardProductMore();
     this.initSmoothScrollTo();*/
-    this.initCartQuantity();
 };
 
 // Initialization disable scroll
@@ -72,6 +76,227 @@ application.prototype.initTouch = function () {
         $('html').addClass('touch');
     }
 };
+
+// Initialization menu call
+application.prototype.initMenuCatalog = function () {
+    const body = $('body');
+    const catalogSpoiler = $('[data-catalog-spoiler]');
+    const catalog = $('[data-catalog]');
+    const catalogClose = $('[data-catalog-close]');
+
+    catalogSpoiler.on('click', () => {
+        setCatalogSwitch();
+    });
+
+    catalogClose.on('click', () => {
+        setCatalogClose();
+    });
+
+    /*$(window).on('resize scroll', function () {
+        setCatalogClose();
+    });*/
+
+    $(document).on('keyup', function (e) {
+        if (e.key == 'Escape') {
+            setCatalogClose();
+        }
+    });
+
+    function setCatalogSwitch() {
+        if (catalog.hasClass('active') && catalogSpoiler.hasClass('active')) {
+            catalogSpoiler.attr('aria-expanded', 'false');
+            catalogSpoiler.attr('aria-label', 'Открыть меню');
+            catalogSpoiler.removeClass('active');
+            catalog.removeClass('active');
+            $('body').removeClass('overflow-hidden');
+        } else {
+            catalogSpoiler.attr('aria-expanded', 'true');
+            catalogSpoiler.attr('aria-label', 'Закрыть меню');
+            catalogSpoiler.addClass('active');
+            catalog.addClass('active');
+            $('body').addClass('overflow-hidden');
+        }
+    }
+
+    function setCatalogClose() {
+        catalogSpoiler.attr('aria-expanded', 'false');
+        catalogSpoiler.attr('aria-label', 'Открыть меню');
+        catalogSpoiler.removeClass('active');
+        catalog.removeClass('active');
+        $('.menu-catalog-header').removeClass('submenu');
+    }
+};
+
+// Initialization basic slider
+application.prototype.initBasicSlider = function () {
+    if ($('.basic-slider-wrap').length) {
+        const slider = $('[data-basic-slider]');
+        let basicSlider = null;
+        let spaceBetweenMobile = 15;
+        let spaceBetweenDesktop = 0;
+
+        slider.each(function (i) {
+            slider.eq(i).closest('.basic-slider-wrap').addClass('basic-slider-wrap-' + i);
+            /*if ($(this).is('[data-bs-gap-sm]')) {
+                spaceBetweenDesktop = 16;
+                spaceBetweenMobile = 12;
+            }*/
+
+            const basicSliderSetting = {
+                slidesPerView: 'auto',
+                slidesPerGroup: 1,
+                spaceBetween: spaceBetweenMobile,
+                direction: 'horizontal',
+                navigation: {
+                    nextEl: '.basic-slider-wrap-' + i + ' .swiper-button-next',
+                    prevEl: '.basic-slider-wrap-' + i + ' .swiper-button-prev',
+                },
+                breakpoints: {
+                    992: {
+                        spaceBetween: spaceBetweenDesktop
+                    },
+                }
+            };
+
+            basicSlider = new Swiper('.basic-slider-wrap-' + i + ' .basic-slider', basicSliderSetting);
+        });
+    }
+};
+
+// Initialization tooltips
+application.prototype.initTooltips = function () {
+    if ($('.tooltip').length) {
+        tippy('.tooltip', {
+            allowHTML: true,
+            trigger: 'mouseenter click',
+        });
+    }
+};
+
+// Initialization switch content
+application.prototype.initSwitchContent = function () {
+    let switchEl = null;
+
+    if ($('[data-switch-content]').length) {
+        switchEl = $('[data-switch-content]');
+        setSwitch(switchEl);
+    }
+    else if ($('[data-switch-content-desktop]').length) {
+        switchEl = $('[data-switch-content-desktop]');
+        setSwitch(switchEl);
+    }
+    else if ($('[data-switch-content-mobile]').length) {
+        switchEl = $('[data-switch-content-mobile]');
+        setSwitch(switchEl);
+    }
+
+    function setSwitch(switchEl) {
+        switchEl.on('click', function () {
+            if($(this).hasClass('active')) {
+                $(this).removeClass('active');
+            } else {
+                $(this).addClass('active');
+            }
+        });
+    }
+};
+
+// Initialization cart quantity
+application.prototype.initCartQuantity = function () {
+    if ($('.cart-quantity').length) {
+        $(document).on('click', '.cart-quantity-btn', function(e) {
+            let $button = $(this);
+            let oldValue = $button.closest('.cart-quantity').find('input.cart-quantity-input').val();
+            let mult = parseInt($button.closest('.cart-quantity').find('input.cart-quantity-input').data('mult'));
+            let newVal = null;
+
+            if(mult <= 0 || isNaN(mult)) {
+                mult = 1;
+            }
+
+            if($button.data('value') === 'qty-add') {
+                newVal = parseInt(oldValue) + mult;
+            } else {
+                if (oldValue > 0) {
+                    newVal = parseInt(oldValue) - mult;
+                } else {
+                    newVal = 0;
+                }
+            }
+
+            if(newVal == 0) {
+                newVal = mult;
+            }
+
+            $button.closest('.cart-quantity').find('input.cart-quantity-input').val(newVal).trigger('change');
+        });
+    }
+};
+
+// Initialization menu catalog behavior
+application.prototype.initMenuCatalogSubmenu = function () {
+    const catalogSpoiler = $('[data-catalog-spoiler]');
+    const catalogTitle = $('[data-catalog-title]');
+    const rootItem = $('.menu-catalog-root-link');
+    const rootSubmenuItem = $('.menu-catalog-submenu-section');
+
+    catalogSpoiler.on('click', function (e) {
+        const defaultRootItem = $(".menu-catalog-root-link[data-submenu-section='0']");
+        const defaultSubmenuItem = $(".menu-catalog-submenu-section[data-root-pointer='0']");
+        let currentCatalogTitle = catalogTitle.data('catalog-title');
+
+        catalogTitle.text(currentCatalogTitle);
+        rootItem.removeClass('selected');
+        rootItem.closest('.menu-catalog-root').removeClass('hide');
+        rootItem.closest('.menu-catalog').find('.menu-catalog-submenu').removeClass('active');
+        rootSubmenuItem.removeClass('active');
+        defaultRootItem.addClass('selected');
+        defaultSubmenuItem.addClass('active');
+    });
+
+    if (window.matchMedia('(min-width: 1400px)').matches) {
+        if (!$('html').hasClass('touch')) {
+            rootItem.on('mouseover', function () {
+                let rootItemId = null;
+                if ($(this).is('[data-submenu-section]')) {
+                    rootItemId = $(this).data('submenu-section');
+                }
+
+                $('.menu-catalog-submenu-section').removeClass('active');
+                $(".menu-catalog-submenu-section[data-root-pointer='" + rootItemId + "']").addClass('active');
+            });
+        } else {
+            rootItem.on('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                let rootItemId = $(this).data('submenu-section');
+
+                $('.menu-catalog-submenu-section').removeClass('active');
+                $(".menu-catalog-submenu-section[data-root-pointer='" + rootItemId + "']").addClass('active');
+            });
+        }
+    } else if (window.matchMedia('(max-width: 1399.98px)').matches) {
+        rootItem.on('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            let rootItemId = $(this).data('submenu-section');
+            let currentCatalogTitle = $(this).text();
+
+            catalogTitle.text(currentCatalogTitle);
+            $(this).closest('.menu-catalog').find('.menu-catalog-header').addClass('submenu');
+            $(this).closest('.menu-catalog-root').addClass('hide');
+            $(this).closest('.menu-catalog').find('.menu-catalog-submenu').addClass('active');
+            $('.menu-catalog-submenu-section').removeClass('active');
+            $(".menu-catalog-submenu-section[data-root-pointer='" + rootItemId + "']").addClass('active');
+        });
+    }
+};
+
+
+
+
 
 // Initialization header scroll
 application.prototype.initHeaderScroll = function () {
@@ -204,42 +429,6 @@ application.prototype.initDropdownMenu = function () {
         dropdown.on('mouseout', function () {
             spoiler.removeClass('active');
             dropdown.removeClass('active');
-        });
-    }
-};
-
-// Initialization basic slider
-application.prototype.initBasicSlider = function () {
-    if ($('.basic-slider-wrap').length) {
-        const slider = $('[data-basic-slider]');
-        let basicSlider = null;
-        let spaceBetweenMobile = 15;
-        let spaceBetweenDesktop = 0;
-
-        slider.each(function (i) {
-            slider.eq(i).closest('.basic-slider-wrap').addClass('basic-slider-wrap-' + i);
-            /*if ($(this).is('[data-bs-gap-sm]')) {
-                spaceBetweenDesktop = 16;
-                spaceBetweenMobile = 12;
-            }*/
-
-            const basicSliderSetting = {
-                slidesPerView: 'auto',
-                slidesPerGroup: 1,
-                spaceBetween: spaceBetweenMobile,
-                direction: 'horizontal',
-                navigation: {
-                    nextEl: '.basic-slider-wrap-' + i + ' .swiper-button-next',
-                    prevEl: '.basic-slider-wrap-' + i + ' .swiper-button-prev',
-                },
-                breakpoints: {
-                    992: {
-                        spaceBetween: spaceBetweenDesktop
-                    },
-                }
-            };
-
-            basicSlider = new Swiper('.basic-slider-wrap-' + i + ' .basic-slider', basicSliderSetting);
         });
     }
 };
@@ -568,16 +757,6 @@ application.prototype.initClipboard = function () {
     }
 };
 
-// Initialization tooltips
-application.prototype.initTooltips = function () {
-    if ($('.tooltip').length) {
-        tippy('.tooltip', {
-            allowHTML: true,
-            trigger: 'mouseenter click',
-        });
-    }
-};
-
 // Initialization tooltips card__act
 application.prototype.initCardActTooltips = function () {
     if ($('.card-tooltip').length) {
@@ -643,17 +822,6 @@ application.prototype.initHeaderInputSearch = function () {
 // Initialization mobile number mask
 application.prototype.initMaskedInput = function () {
     $(".isPhone").mask("+7-999-999-99-99", { autoclear: false });
-};
-
-// Initialization switch content
-application.prototype.initSwitchContent = function () {
-    $('.switch-content').on('click', function () {
-        if($(this).hasClass('active')) {
-            $(this).removeClass('active');
-        } else {
-            $(this).addClass('active');
-        }
-    });
 };
 
 // Initialization notification
@@ -1154,36 +1322,4 @@ application.prototype.initSmoothScrollTo = function () {
             }
         }
     });
-};
-
-// Initialization cart quantity
-application.prototype.initCartQuantity = function () {
-    if ($('.cart-quantity').length) {
-        $(document).on('click', '.cart-quantity-btn', function(e) {
-            let $button = $(this);
-            let oldValue = $button.closest('.cart-quantity').find('input.cart-quantity-input').val();
-            let mult = parseInt($button.closest('.cart-quantity').find('input.cart-quantity-input').data('mult'));
-            let newVal = null;
-
-            if(mult <= 0 || isNaN(mult)) {
-                mult = 1;
-            }
-
-            if($button.data('value') === 'qty-add') {
-                newVal = parseInt(oldValue) + mult;
-            } else {
-                if (oldValue > 0) {
-                    newVal = parseInt(oldValue) - mult;
-                } else {
-                    newVal = 0;
-                }
-            }
-
-            if(newVal == 0) {
-                newVal = mult;
-            }
-
-            $button.closest('.cart-quantity').find('input.cart-quantity-input').val(newVal).trigger('change');
-        });
-    }
 };

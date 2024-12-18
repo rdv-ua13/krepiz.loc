@@ -91,31 +91,391 @@
                             <span class="header-logo__text">Оптовая продажа крепежа</span>
                         </a>
                         <div class="header-catalog">
-                            <a class="btn-reset btn btn-primary btn-sm header-catalog__link" href="javascript:;">
-                                <svg class="icon icon-fill">
+                            <button class="btn-reset btn btn-primary btn-sm header-catalog-spoiler" type="button" data-catalog-spoiler>
+                                <svg class="icon icon-fill icon-default">
                                     <use href="img/sprite.svg#catalog"></use>
                                 </svg>
+                                <svg class="icon icon-fill icon-active">
+                                    <use href="img/sprite.svg#cross"></use>
+                                </svg>
                                 <span class="text-content">Каталог</span>
-                            </a>
-                            <div class="header-search">
-                                <form id="" method="" action="javascript:;">
-                                    <div class="input-wrapper input-wrapper-split">
-                                        <input
-                                                id="header_search"
-                                                class="input-reset input input-search"
-                                                type="text"
-                                                name=""
-                                                value=""
-                                                placeholder="Поиск по сайту"
-                                        >
-                                        <button class="btn-reset btn btn-sm btn-primary header-search__submit" type="submit">
-                                            <svg class="icon icon-fill">
-                                                <use href="img/sprite.svg#search"></use>
-                                            </svg>
-                                        </button>
+                            </button>
+                            <div class="header-catalog-menu menu-catalog" data-catalog>
+                                <div class="menu-catalog-content">
+                                    <div class="menu-catalog-header">
+                                        <div class="menu-catalog-title">
+                                            <span data-catalog-title="Каталог">Каталог</span>
+                                        </div>
                                     </div>
-                                </form>
+                                    <div class="menu-catalog-root">
+                                        <div class="menu-catalog-root-item">
+                                            <a class="menu-catalog-root-link selected" href="javascript:;" data-submenu-section="0">
+                                                <span class="text-content">Крепёж</span>
+                                                <svg class="icon icon-fill">
+                                                    <use href="img/sprite.svg#chevron-right"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                        <div class="menu-catalog-root-item">
+                                            <a class="menu-catalog-root-link" href="javascript:;" data-submenu-section="1">
+                                                <span class="text-content">Общестроительные материалы</span>
+                                                <svg class="icon icon-fill">
+                                                    <use href="img/sprite.svg#chevron-right"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                        <div class="menu-catalog-root-item">
+                                            <a class="menu-catalog-root-link" href="javascript:;" data-submenu-section="2">
+                                                <span class="text-content">Инструмент</span>
+                                                <svg class="icon icon-fill">
+                                                    <use href="img/sprite.svg#chevron-right"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                        <div class="menu-catalog-root-item">
+                                            <a class="menu-catalog-root-link" href="javascript:;" data-submenu-section="3">
+                                                <span class="text-content">Бренды</span>
+                                                <svg class="icon icon-fill">
+                                                    <use href="img/sprite.svg#chevron-right"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="menu-catalog-submenu">
+                                        <div class="menu-catalog-submenu-section active" data-root-pointer="0">
+                                            <ul class="list-reset menu-catalog-submenu__list">
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Анкеры и анкерные болты</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Текст подраздела</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Анкер химический</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Перфорация</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Болты и винты</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Проволка</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Гайки</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Саморезы и шурупы</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Гвозди</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Такелаж</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Дюбели и дюбель-гвозди</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Хомуты и держатели для труб</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Дюбели рамные (фасадные)</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Шайбы</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Железнодорожный крепёж</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Шпилька резьбовая</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Заклейки</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Шплинты</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Канаты</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Электорды</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Кольца</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Крепёж для вентиляции</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Крепёж для пустот</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Крепёж для теплоизоляции</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Крепёж для электропроводки</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="menu-catalog-submenu-section active" data-root-pointer="1">
+                                            <ul class="list-reset menu-catalog-submenu__list">
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Текст ссылки</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Текст ссылки</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Текст ссылки</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="menu-catalog-submenu-section active" data-root-pointer="2">
+                                            <ul class="list-reset menu-catalog-submenu__list">
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Текст ссылки</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Текст ссылки</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Текст ссылки</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Текст ссылки</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="menu-catalog-submenu-section active" data-root-pointer="3">
+                                            <ul class="list-reset menu-catalog-submenu__list">
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Текст ссылки</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Текст ссылки</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Текст ссылки</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Текст ссылки</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="menu-catalog-submenu__link">
+                                                        <span class="text-content">Текст ссылки</span>
+                                                        <svg class="icon icon-fill">
+                                                            <use href="img/sprite.svg#chevron-right"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+                        <div class="header-search">
+                            <form id="" method="" action="javascript:;">
+                                <div class="input-wrapper input-wrapper-split">
+                                    <input
+                                            id="header_search"
+                                            class="input-reset input input-search"
+                                            type="text"
+                                            name=""
+                                            value=""
+                                            placeholder="Поиск по сайту"
+                                    >
+                                    <button class="btn-reset btn btn-sm btn-primary header-search__submit" type="submit">
+                                        <svg class="icon icon-fill">
+                                            <use href="img/sprite.svg#search"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                         <div class="header-info">
                             <div class="header-contacts">
@@ -133,17 +493,6 @@
                                 </button>
                             </div>
                         </div>
-                        <button
-                                class="btn-reset btn header-burger"
-                                aria-label="Открыть меню"
-                                aria-expanded="false"
-                                data-menu-spoiler
-                                data-overlay
-                        >
-                            <svg class="icon icon-fill">
-                                <use href="img/sprite.svg#catalog"></use>
-                            </svg>
-                        </button>
                     </div>
                 </div>
             </div>

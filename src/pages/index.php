@@ -6,7 +6,7 @@
             <div class="h2 basic-slider-nav-tr-header">Крепёж - хиты продаж</div>
         </div>
 
-        <div class="slider-out basic-slider-wrap basic-slider-wrap-nav-tr">
+        <div class="slider-out basic-slider-wrap basic-slider-wrap-nav-tr basic-slider-wrap-shadow-visible">
             <div class="product-slider basic-slider swiper" data-basic-slider>
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
